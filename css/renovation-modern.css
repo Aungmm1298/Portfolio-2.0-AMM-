@@ -1,0 +1,336 @@
+/* ============================================
+   COMPLETE RENOVATION - MODERN DESIGN SYSTEM
+   ============================================ */
+
+/* === GLOBAL RESETS & BASE STYLES === */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+body {
+    background: linear-gradient(135deg, #0a0a0f 0%, #1a0b2e 50%, #0a0a0f 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* === MODERN SELECTION === */
+::selection {
+    background: linear-gradient(135deg, rgba(0, 255, 247, 0.3), rgba(59, 130, 246, 0.3));
+    color: white;
+    text-shadow: 0 0 10px rgba(0, 255, 247, 0.5);
+}
+
+::-moz-selection {
+    background: linear-gradient(135deg, rgba(0, 255, 247, 0.3), rgba(59, 130, 246, 0.3));
+    color: white;
+}
+
+/* === ULTRA MODERN SCROLLBAR === */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.4);
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #00FFF7 0%, #3b82f6 50%, #FF00EA 100%);
+    border-radius: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 10px rgba(0, 255, 247, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #00FFF7 0%, #FF00EA 100%);
+    box-shadow: 0 0 20px rgba(0, 255, 247, 0.6),
+                0 0 40px rgba(255, 0, 234, 0.4);
+}
+
+/* === ENHANCED GLASSMORPHISM === */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.glass-effect-strong {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(30px) saturate(200%);
+    -webkit-backdrop-filter: blur(30px) saturate(200%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
+}
+
+/* === NEON GLOW EFFECTS === */
+.neon-glow-cyan {
+    box-shadow: 0 0 20px rgba(0, 255, 247, 0.4),
+                0 0 40px rgba(0, 255, 247, 0.2),
+                inset 0 0 20px rgba(0, 255, 247, 0.1);
+}
+
+.neon-glow-magenta {
+    box-shadow: 0 0 20px rgba(255, 0, 234, 0.4),
+                0 0 40px rgba(255, 0, 234, 0.2),
+                inset 0 0 20px rgba(255, 0, 234, 0.1);
+}
+
+.neon-glow-mixed {
+    box-shadow: 0 0 30px rgba(0, 255, 247, 0.3),
+                0 0 60px rgba(255, 0, 234, 0.2),
+                0 0 90px rgba(59, 130, 246, 0.1);
+}
+
+/* === MODERN CARD STYLES === */
+.modern-card {
+    position: relative;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 2rem;
+    padding: 2.5rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modern-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 2rem;
+    padding: 2px;
+    background: linear-gradient(135deg, rgba(0, 255, 247, 0.3), rgba(59, 130, 246, 0.3), rgba(255, 0, 234, 0.3));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.modern-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
+                0 0 40px rgba(0, 255, 247, 0.2);
+}
+
+.modern-card:hover::before {
+    opacity: 1;
+}
+
+/* === ADVANCED GRADIENT TEXT === */
+.gradient-text-animated {
+    background: linear-gradient(90deg, 
+        #00FFF7 0%, 
+        #3b82f6 25%, 
+        #a855f7 50%, 
+        #FF00EA 75%,
+        #00FFF7 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 4s linear infinite;
+}
+
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+/* === FLOATING ELEMENTS === */
+.float-animation {
+    animation: float-smooth 6s ease-in-out infinite;
+}
+
+@keyframes float-smooth {
+    0%, 100% {
+        transform: translateY(0px) translateX(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-20px) translateX(10px) rotate(5deg);
+    }
+    50% {
+        transform: translateY(-10px) translateX(-10px) rotate(-5deg);
+    }
+    75% {
+        transform: translateY(-30px) translateX(5px) rotate(3deg);
+    }
+}
+
+/* === MODERN BUTTONS === */
+.btn-modern-primary {
+    position: relative;
+    background: linear-gradient(135deg, #00FFF7, #3b82f6);
+    color: #000;
+    font-weight: 700;
+    padding: 1.25rem 3rem;
+    border-radius: 1.5rem;
+    border: none;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-modern-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+.btn-modern-primary:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 255, 247, 0.4),
+                0 0 60px rgba(0, 255, 247, 0.3);
+}
+
+.btn-modern-primary:hover::before {
+    left: 100%;
+}
+
+.btn-modern-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    color: white;
+    font-weight: 600;
+    padding: 1.25rem 3rem;
+    border-radius: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-modern-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(0, 255, 247, 0.5);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 255, 247, 0.2);
+}
+
+/* === BADGE STYLES === */
+.modern-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, rgba(0, 255, 247, 0.1), rgba(59, 130, 246, 0.1));
+    border: 1px solid rgba(0, 255, 247, 0.3);
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #00FFF7;
+}
+
+.modern-badge::before {
+    content: '';
+    width: 0.5rem;
+    height: 0.5rem;
+    background: #00FFF7;
+    border-radius: 50%;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* === SECTION TRANSITIONS === */
+section {
+    scroll-margin-top: 100px;
+    position: relative;
+}
+
+/* === ENHANCED ANIMATIONS === */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.shimmer-effect {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 3s infinite;
+}
+
+/* === MODERN SKILL BARS === */
+.skill-bar {
+    height: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+    overflow: hidden;
+    position: relative;
+}
+
+.skill-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00FFF7, #3b82f6);
+    border-radius: 9999px;
+    position: relative;
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skill-bar-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 100%
+    );
+    animation: shimmer 2s infinite;
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 1024px) {
+    .modern-card {
+        padding: 1.5rem;
+    }
+    
+    .btn-modern-primary,
+    .btn-modern-secondary {
+        padding: 1rem 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        scroll-padding-top: 80px;
+    }
+    
+    .modern-card {
+        padding: 1.25rem;
+    }
+}
+
+/* === PRINT STYLES === */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+}
