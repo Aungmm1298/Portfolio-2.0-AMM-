@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aung Myint Myat | Cloud Developer</title>
+    <meta name="description" content="Portfolio of Aung Myint Myat - Cloud Developer passionate about cutting-edge technologies">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: #000000;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        /* Animated Gradient Background Circles */
+        .gradient-circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.15;
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        .gradient-circle-1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, transparent 70%);
+            top: -200px;
+            left: -200px;
+            animation-delay: 0s;
+        }
+        
+        .gradient-circle-2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+            top: 50%;
+            right: -150px;
+            animation-delay: 5s;
+        }
+        
+        .gradient-circle-3 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.3) 0%, transparent 70%);
+            bottom: 100px;
+            left: 20%;
+            animation-delay: 10s;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(50px, -50px) scale(1.1);
+            }
+            66% {
+                transform: translate(-30px, 40px) scale(0.9);
+            }
+        }
+        
+        /* Glass Morphism Cards */
+        .glass-card {
+            background: rgba(20, 20, 20, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            background: rgba(30, 30, 30, 0.7);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-4px);
+        }
+        
+        /* Tech Badge Styles */
+        .tech-badge {
+            background: rgba(20, 20, 20, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        
+        .tech-badge:hover {
+            border-color: rgba(139, 92, 246, 0.5);
+            background: rgba(139, 92, 246, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        /* Navigation */
+        .nav-glass {
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Profile Image Glow */
+        .profile-glow {
+            position: relative;
+        }
+        
+        .profile-glow::before {
+            content: '';
+            position: absolute;
+            inset: -10px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #8b5cf6, #3b82f6, #8b5cf6);
+            z-index: -1;
+            animation: rotate 3s linear infinite;
+        }
+        
+        @keyframes rotate {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        /* Globe/Sphere Animation */
+        .globe-container {
+            width: 400px;
+            height: 400px;
+            position: relative;
+            margin: 0 auto;
+        }
+        
+        .globe {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, 
+                rgba(139, 92, 246, 0.2) 0%, 
+                rgba(59, 130, 246, 0.1) 40%, 
+                transparent 70%);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            position: relative;
+            animation: globeFloat 6s ease-in-out infinite;
+            box-shadow: 
+                0 0 60px rgba(139, 92, 246, 0.3),
+                inset 0 0 60px rgba(139, 92, 246, 0.2);
+        }
+        
+        .globe::before {
+            content: '';
+            position: absolute;
+            inset: 20%;
+            border-radius: 50%;
+            background: radial-gradient(circle at 40% 40%, 
+                rgba(255, 255, 255, 0.8) 0%, 
+                transparent 50%);
+            filter: blur(10px);
+        }
+        
+        .globe-dots {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+        
+        .dot {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(139, 92, 246, 0.6);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes globeFloat {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.6;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.5);
+            }
+        }
+        
+        /* Terminal Window */
+        .terminal-window {
+            background: rgba(15, 15, 15, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .terminal-header {
+            background: rgba(30, 30, 30, 0.8);
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .dot-red { background: #ff5f56; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #27c93f; }
+        
+        /* Service Cards Grid */
+        .service-card {
+            background: rgba(20, 20, 20, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            background: rgba(30, 30, 30, 0.6);
+            border-color: rgba(139, 92, 246, 0.3);
+            transform: translateY(-4px);
+        }
+        
+        /* Zone Badge */
+        .zone-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .zone-badge.active {
+            background: rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+        
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 50%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Button Styles */
+        .btn-primary {
+            background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
+            padding: 12px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.4);
+        }
+        
+        .btn-secondary {
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(30, 30, 30, 0.9);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background Gradients -->
+    <div class="gradient-circle gradient-circle-1"></div>
+    <div class="gradient-circle gradient-circle-2"></div>
+    <div class="gradient-circle gradient-circle-3"></div>
+    
+    <div class="relative z-10">
+        <!-- Navigation -->
+        <nav class="fixed w-full top-6 z-50 flex justify-center px-4">
+            <div class="nav-glass flex items-center gap-2 rounded-full px-6 py-3">
+                <a href="#home" class="px-4 py-2 text-white hover:text-purple-400 transition rounded-full hover:bg-white/5">Home</a>
+                <a href="#about" class="px-4 py-2 text-gray-400 hover:text-white transition rounded-full hover:bg-white/5">About</a>
+                <a href="#work" class="px-4 py-2 text-gray-400 hover:text-white transition rounded-full hover:bg-white/5">Work</a>
+                <a href="#blog" class="px-4 py-2 text-gray-400 hover:text-white transition rounded-full hover:bg-white/5">Blog</a>
+                <div class="relative group">
+                    <button class="px-4 py-2 text-gray-400 hover:text-white transition rounded-full hover:bg-white/5 flex items-center gap-2">
+                        More <i class="fas fa-chevron-down text-xs"></i>
+                    </button>
+                </div>
+                <a href="#contact" class="px-6 py-2 bg-white text-black hover:bg-gray-200 transition rounded-full font-semibold ml-2">Book a Call</a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex items-center justify-center px-6 pt-32">
+            <div class="max-w-7xl mx-auto w-full">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <!-- Left Side -->
+                    <div>
+                        <!-- Profile Image -->
+                        <div class="relative w-64 h-64 mx-auto mb-12">
+                            <div class="profile-glow">
+                                <img src="images/IMG_5239.jpg" alt="Profile" class="w-64 h-64 rounded-full object-cover relative z-10 border-4 border-black">
+                            </div>
+                        </div>
+                        
+                        <!-- Collaboration Section -->
+                        <div class="glass-card rounded-3xl p-8 mb-8">
+                            <div class="flex items-start gap-4 mb-4">
+                                <div class="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-handshake text-purple-400 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xs uppercase tracking-wider text-gray-400 mb-2">COLLABORATION</h3>
+                                    <p class="text-white text-lg leading-relaxed">I prioritize client collaboration, fostering open communication</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Time Zone Section -->
+                        <div class="glass-card rounded-3xl p-8">
+                            <h3 class="text-2xl font-bold mb-6">I'm very flexible with time<br>zone communications</h3>
+                            <div class="flex flex-wrap gap-3">
+                                <div class="zone-badge">
+                                    <span class="text-gray-400">GB</span>
+                                    <span class="text-white">UK</span>
+                                </div>
+                                <div class="zone-badge active">
+                                    <span class="text-gray-400">IN</span>
+                                    <span class="text-white">India</span>
+                                </div>
+                                <div class="zone-badge">
+                                    <span class="text-gray-400">US</span>
+                                    <span class="text-white">USA</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Side -->
+                    <div>
+                        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
+                            Passionate about <span class="gradient-text">cutting-edge technologies</span>
+                        </h1>
+                        
+                        <!-- Technology Badges -->
+                        <div class="flex flex-wrap gap-3 mb-12">
+                            <div class="tech-badge">
+                                <i class="fas fa-wind text-cyan-400 mr-2"></i>
+                                Tailwind CSS
+                            </div>
+                            <div class="tech-badge">
+                                <i class="fab fa-css3-alt text-blue-500 mr-2"></i>
+                                CSS
+                            </div>
+                            <div class="tech-badge">
+                                <i class="fas fa-film text-purple-400 mr-2"></i>
+                                Motion.dev
+                            </div>
+                            <div class="tech-badge">
+                                <i class="fas fa-layer-group text-orange-400 mr-2"></i>
+                                JamStack Query
+                            </div>
+                            <div class="tech-badge">
+                                <i class="fas fa-database text-purple-400 mr-2"></i>
+                                Zustand
+                            </div>
+                            <div class="tech-badge">
+                                <i class="fab fa-react text-blue-400 mr-2"></i>
+                                Expo
+                            </div>
+                            <div class="tech-badge">
+                                <i class="fab fa-aws text-orange-500 mr-2"></i>
+                                AWS
+                            </div>
+                            <div class="tech-badge">
+                                <i class="fas fa-cloud text-orange-400 mr-2"></i>
+                                Cloudflare
+                            </div>
+                            <div class="tech-badge">
+                                <i class="fab fa-python text-blue-400 mr-2"></i>
+                                Python
+                            </div>
+                            <div class="tech-badge">
+                                <i class="fab fa-linux text-white mr-2"></i>
+                                Linux
+                            </div>
+                        </div>
+                        
+                        <!-- CTA Section -->
+                        <div class="glass-card rounded-3xl p-10 text-center mb-8">
+                            <h2 class="text-3xl font-bold mb-4">Let's work together<br>on your next project</h2>
+                            <button class="inline-flex items-center gap-3 px-8 py-4 bg-white/10 border border-white/20 rounded-xl text-white hover:bg-white/20 transition">
+                                <i class="far fa-copy"></i>
+                                <span>hello@aayushbharti.in</span>
+                            </button>
+                        </div>
+                        
+                        <!-- Globe Container -->
+                        <div class="glass-card rounded-3xl p-10">
+                            <div class="globe-container">
+                                <div class="globe">
+                                    <div class="globe-dots">
+                                        <div class="dot" style="top: 20%; left: 30%;"></div>
+                                        <div class="dot" style="top: 40%; left: 60%; animation-delay: 0.5s;"></div>
+                                        <div class="dot" style="top: 60%; left: 20%; animation-delay: 1s;"></div>
+                                        <div class="dot" style="top: 70%; left: 70%; animation-delay: 1.5s;"></div>
+                                        <div class="dot" style="top: 30%; left: 80%; animation-delay: 0.3s;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Terminal Window -->
+                        <div class="terminal-window mt-8">
+                            <div class="terminal-header">
+                                <div class="terminal-dot dot-red"></div>
+                                <div class="terminal-dot dot-yellow"></div>
+                                <div class="terminal-dot dot-green"></div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-2xl font-bold mb-4">Websites that<br><span class="text-blue-400">Impact.</span></h3>
+                                <div class="flex gap-4 mt-6">
+                                    <button class="btn-primary">Start <i class="fas fa-arrow-right ml-2"></i></button>
+                                    <button class="btn-secondary">Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-32 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">What I can do for you</h2>
+                    <p class="text-gray-400 text-lg">Comprehensive solutions for your digital needs</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Service Card 1 -->
+                    <div class="service-card">
+                        <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center mb-4">
+                            <i class="fas fa-chart-line text-purple-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Monitoring & Analytics</h3>
+                        <p class="text-gray-400">Track performance and gain insights with advanced monitoring solutions</p>
+                    </div>
+                    
+                    <!-- Service Card 2 -->
+                    <div class="service-card">
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center mb-4">
+                            <i class="fas fa-palette text-blue-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Design System & UI</h3>
+                        <p class="text-gray-400">Create beautiful, consistent user interfaces with scalable design systems</p>
+                    </div>
+                    
+                    <!-- Service Card 3 -->
+                    <div class="service-card">
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/20 flex items-center justify-center mb-4">
+                            <i class="fas fa-route text-cyan-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">API Gateway & Integration</h3>
+                        <p class="text-gray-400">Seamless API management and third-party service integration</p>
+                    </div>
+                    
+                    <!-- Service Card 4 -->
+                    <div class="service-card">
+                        <div class="w-12 h-12 rounded-xl bg-pink-500/20 flex items-center justify-center mb-4">
+                            <i class="fas fa-user-shield text-pink-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">User Onboarding</h3>
+                        <p class="text-gray-400">Smooth user experience from signup to engagement</p>
+                    </div>
+                    
+                    <!-- Service Card 5 -->
+                    <div class="service-card">
+                        <div class="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center mb-4">
+                            <i class="fas fa-credit-card text-green-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Payment System</h3>
+                        <p class="text-gray-400">Secure and reliable payment processing integration</p>
+                    </div>
+                    
+                    <!-- Service Card 6 -->
+                    <div class="service-card">
+                        <div class="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center mb-4">
+                            <i class="fas fa-bell text-orange-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Monitoring & Alerts</h3>
+                        <p class="text-gray-400">Real-time alerts and comprehensive system monitoring</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-32 px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-8">Ready to start a project?</h2>
+                <p class="text-gray-400 text-lg mb-12">Let's create something amazing together</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="mailto:aungmyintmyatchauk@gmail.com" class="btn-primary inline-flex items-center justify-center gap-2">
+                        <i class="fas fa-envelope"></i>
+                        Get in Touch
+                    </a>
+                    <a href="#" class="btn-secondary inline-flex items-center justify-center gap-2">
+                        <i class="fab fa-linkedin"></i>
+                        Connect on LinkedIn
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-12 px-6 border-t border-white/10">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center font-bold">
+                        AB
+                    </div>
+                    <span class="text-lg font-semibold">Aung Myint Myat</span>
+                </div>
+                
+                <div class="flex gap-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                </div>
+                
+                <p class="text-gray-400 text-sm">© 2026 All rights reserved</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Active nav link
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('nav a[href^="#"]');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('text-white');
+                link.classList.add('text-gray-400');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.remove('text-gray-400');
+                    link.classList.add('text-white');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
