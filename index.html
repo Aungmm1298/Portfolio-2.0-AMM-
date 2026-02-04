@@ -716,7 +716,7 @@
                 </div>
                 
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="card rounded-3xl p-6 hover:scale-105 transition-all group relative overflow-hidden">
+                    <div class="card rounded-3xl p-6 hover:scale-105 transition-all group relative overflow-hidden cursor-pointer certificate-card" data-cert-img="images/AWS-Certified-Cloud-Practitioner.jpg" data-cert-name="AWS Certified Cloud Practitioner">
                         <div class="absolute top-4 right-4 w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center">
                             <i class="fas fa-check text-green-500 text-xs"></i>
                         </div>
@@ -727,7 +727,7 @@
                         <p class="text-xs text-gray-500 text-center">Amazon Web Services</p>
                     </div>
                     
-                    <div class="card rounded-3xl p-6 hover:scale-105 transition-all group relative overflow-hidden">
+                    <div class="card rounded-3xl p-6 hover:scale-105 transition-all group relative overflow-hidden cursor-pointer certificate-card" data-cert-img="images/HCIA-Cloud-Service.jpg" data-cert-name="HCIA-Cloud Service">
                         <div class="absolute top-4 right-4 w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center">
                             <i class="fas fa-check text-green-500 text-xs"></i>
                         </div>
@@ -738,7 +738,7 @@
                         <p class="text-xs text-gray-500 text-center">Huawei</p>
                     </div>
                     
-                    <div class="card rounded-3xl p-6 hover:scale-105 transition-all group relative overflow-hidden">
+                    <div class="card rounded-3xl p-6 hover:scale-105 transition-all group relative overflow-hidden cursor-pointer certificate-card" data-cert-img="images/HCIA-IoT.jpg" data-cert-name="HCIA-IoT">
                         <div class="absolute top-4 right-4 w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center">
                             <i class="fas fa-check text-green-500 text-xs"></i>
                         </div>
@@ -749,7 +749,7 @@
                         <p class="text-xs text-gray-500 text-center">Huawei</p>
                     </div>
                     
-                    <div class="card rounded-3xl p-6 hover:scale-105 transition-all group relative overflow-hidden">
+                    <div class="card rounded-3xl p-6 hover:scale-105 transition-all group relative overflow-hidden cursor-pointer certificate-card" data-cert-img="images/HCCDA-Cloud-Native.png" data-cert-name="HCCDA Cloud Native">
                         <div class="absolute top-4 right-4 w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center">
                             <i class="fas fa-check text-green-500 text-xs"></i>
                         </div>
@@ -760,7 +760,7 @@
                         <p class="text-xs text-gray-500 text-center">Huawei</p>
                     </div>
                     
-                    <div class="card rounded-3xl p-6 hover:scale-105 transition-all group relative overflow-hidden">
+                    <div class="card rounded-3xl p-6 hover:scale-105 transition-all group relative overflow-hidden cursor-pointer certificate-card" data-cert-img="images/HCCDP-Cloud-Migration.png" data-cert-name="HCCDP Cloud Migration">
                         <div class="absolute top-4 right-4 w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center">
                             <i class="fas fa-check text-green-500 text-xs"></i>
                         </div>
@@ -771,7 +771,7 @@
                         <p class="text-xs text-gray-500 text-center">Huawei</p>
                     </div>
                     
-                    <div class="card rounded-3xl p-6 hover:scale-105 transition-all group relative overflow-hidden">
+                    <div class="card rounded-3xl p-6 hover:scale-105 transition-all group relative overflow-hidden cursor-pointer certificate-card" data-cert-img="images/HCCDP-solution-architect.png" data-cert-name="HCCDP Solution Architect">
                         <div class="absolute top-4 right-4 w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center">
                             <i class="fas fa-check text-green-500 text-xs"></i>
                         </div>
@@ -782,7 +782,7 @@
                         <p class="text-xs text-gray-500 text-center">Huawei</p>
                     </div>
                     
-                    <div class="card rounded-3xl p-6 hover:scale-105 transition-all group relative overflow-hidden">
+                    <div class="card rounded-3xl p-6 hover:scale-105 transition-all group relative overflow-hidden cursor-pointer certificate-card" data-cert-img="images/HWDCTEDA233144.png" data-cert-name="HCCDA Tech Essential">
                         <div class="absolute top-4 right-4 w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center">
                             <i class="fas fa-check text-green-500 text-xs"></i>
                         </div>
@@ -793,7 +793,7 @@
                         <p class="text-xs text-gray-500 text-center">Huawei</p>
                     </div>
                     
-                    <div class="card rounded-3xl p-6 hover:scale-105 transition-all group relative overflow-hidden">
+                    <div class="card rounded-3xl p-6 hover:scale-105 transition-all group relative overflow-hidden cursor-pointer certificate-card" data-cert-img="images/HWENDCAIDA666269.png" data-cert-name="HCCDA AI">
                         <div class="absolute top-4 right-4 w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center">
                             <i class="fas fa-check text-green-500 text-xs"></i>
                         </div>
@@ -930,6 +930,26 @@
                 </svg>
             </div>
         </footer>
+    </div>
+
+    <!-- Certificate Modal -->
+    <div id="certificateModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4" style="background: rgba(0, 0, 0, 0.95);">
+        <div class="relative max-w-6xl w-full max-h-[90vh] flex flex-col">
+            <!-- Close Button -->
+            <button id="closeModal" class="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors">
+                <i class="fas fa-times text-3xl"></i>
+            </button>
+            
+            <!-- Certificate Image Container -->
+            <div class="flex-1 flex items-center justify-center overflow-hidden">
+                <img id="modalCertImage" src="" alt="" class="max-w-full max-h-[85vh] object-contain rounded-lg">
+            </div>
+            
+            <!-- Certificate Name -->
+            <div class="text-center mt-6">
+                <h3 id="modalCertName" class="text-2xl font-display text-white"></h3>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -1074,6 +1094,54 @@
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
+        });
+
+        // Certificate Modal Functionality
+        const certificateModal = document.getElementById('certificateModal');
+        const modalCertImage = document.getElementById('modalCertImage');
+        const modalCertName = document.getElementById('modalCertName');
+        const closeModalBtn = document.getElementById('closeModal');
+        const certificateCards = document.querySelectorAll('.certificate-card');
+
+        // Open modal when certificate card is clicked
+        certificateCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const certImg = this.getAttribute('data-cert-img');
+                const certName = this.getAttribute('data-cert-name');
+                
+                modalCertImage.src = certImg;
+                modalCertImage.alt = certName;
+                modalCertName.textContent = certName;
+                
+                certificateModal.classList.remove('hidden');
+                certificateModal.classList.add('flex');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            });
+        });
+
+        // Close modal when close button is clicked
+        closeModalBtn.addEventListener('click', function() {
+            certificateModal.classList.add('hidden');
+            certificateModal.classList.remove('flex');
+            document.body.style.overflow = ''; // Restore scrolling
+        });
+
+        // Close modal when clicking outside the image
+        certificateModal.addEventListener('click', function(e) {
+            if (e.target === certificateModal) {
+                certificateModal.classList.add('hidden');
+                certificateModal.classList.remove('flex');
+                document.body.style.overflow = ''; // Restore scrolling
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && !certificateModal.classList.contains('hidden')) {
+                certificateModal.classList.add('hidden');
+                certificateModal.classList.remove('flex');
+                document.body.style.overflow = ''; // Restore scrolling
+            }
         });
     </script>
 </body>
