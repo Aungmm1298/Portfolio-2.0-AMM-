@@ -354,6 +354,10 @@
                         Let's Connect
                         <i class="fas fa-arrow-right"></i>
                     </a>
+                    <button onclick="openCVModal()" class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white rounded-full font-medium transition shadow-lg shadow-purple-500/30 magnetic">
+                        <i class="fas fa-file-pdf"></i>
+                        View CV
+                    </button>
                     <a href="mailto:aungmyintmyatchauk@gmail.com" class="inline-flex items-center gap-3 px-6 py-4 bg-gray-900/50 border border-gray-800 hover:border-gray-700 backdrop-blur-sm text-gray-300 rounded-full transition magnetic">
                         <i class="fas fa-copy"></i>
                         aungmyintmyatchauk@gmail.com
@@ -952,6 +956,33 @@
         </div>
     </div>
 
+    <!-- CV Modal -->
+    <div id="cvModal" class="fixed inset-0 bg-black/95 backdrop-blur-md z-50 hidden items-center justify-center p-4">
+        <div class="relative w-full max-w-6xl h-[90vh] bg-gray-900 rounded-2xl overflow-hidden shadow-2xl">
+            <!-- Modal Header -->
+            <div class="absolute top-0 left-0 right-0 bg-gradient-to-r from-purple-600 to-pink-600 p-4 flex justify-between items-center z-10">
+                <h3 class="text-2xl font-display text-white flex items-center gap-2">
+                    <i class="fas fa-file-pdf"></i>
+                    My Resume
+                </h3>
+                <div class="flex gap-2">
+                    <a href="CV/My portfolio.pdf" download="Aung_Myint_Myat_CV.pdf" class="px-4 py-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white rounded-lg transition flex items-center gap-2">
+                        <i class="fas fa-download"></i>
+                        Download
+                    </a>
+                    <button onclick="closeCVModal()" class="w-10 h-10 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white rounded-lg transition flex items-center justify-center">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- PDF Viewer -->
+            <div class="w-full h-full pt-16">
+                <iframe id="cvFrame" src="" class="w-full h-full border-0"></iframe>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Floating Geometric Shapes with Depth
         const canvas = document.getElementById('starfield');
@@ -1277,6 +1308,42 @@
                 certificateModal.classList.add('hidden');
                 certificateModal.classList.remove('flex');
                 document.body.style.overflow = ''; // Restore scrolling
+            }
+        });
+
+        // CV Modal Functions
+        function openCVModal() {
+            const cvModal = document.getElementById('cvModal');
+            const cvFrame = document.getElementById('cvFrame');
+            
+            cvFrame.src = 'CV/My portfolio.pdf';
+            cvModal.classList.remove('hidden');
+            cvModal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCVModal() {
+            const cvModal = document.getElementById('cvModal');
+            const cvFrame = document.getElementById('cvFrame');
+            
+            cvModal.classList.add('hidden');
+            cvModal.classList.remove('flex');
+            cvFrame.src = '';
+            document.body.style.overflow = '';
+        }
+
+        // Close CV modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            const cvModal = document.getElementById('cvModal');
+            if (e.key === 'Escape' && !cvModal.classList.contains('hidden')) {
+                closeCVModal();
+            }
+        });
+
+        // Close CV modal when clicking outside
+        document.getElementById('cvModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeCVModal();
             }
         });
     </script>
