@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aung Myint Myat | Cloud Developer</title>
     <meta name="description" content="Portfolio of Aung Myint Myat - Cloud Developer specializing in AWS, Azure, and scalable infrastructure solutions">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>💼</text></svg>">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -743,10 +744,10 @@
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Achievement Card -->
                     <div class="card rounded-3xl p-8 hover:scale-105 transition-transform">
-                        <div class="mb-6">
-                            <img src="images/IMG_6558.jpg" alt="Huawei ICT Competition" class="w-full h-64 object-cover rounded-xl">
+                        <div class="mb-6 cursor-pointer" onclick="openAchievementModal('images/IMG_6558.jpg', '2025-26 Huawei ICT Competition (Grand Prize)')">
+                            <img src="images/IMG_6558.jpg" alt="Huawei ICT Competition" class="w-full h-64 object-cover rounded-xl hover:opacity-80 transition-opacity">
                         </div>
-                        <h3 class="text-xl font-display mb-2">2025 Huawei ICT Competition (Grand Prize)</h3>
+                        <h3 class="text-xl font-display mb-2">2025-26 Huawei ICT Competition (Grand Prize)</h3>
                         <p class="text-gray-400">Awarded the Grand Prize at the Huawei ICT Competition for demonstrating outstanding performance in cloud computing, networking, and ICT problem-solving, competing against top university teams at the national level.</p>
                     </div>
                 </div>
@@ -871,6 +872,26 @@
             <!-- Certificate Name -->
             <div class="text-center mt-6">
                 <h3 id="modalCertName" class="text-2xl font-display text-white"></h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Achievement Image Modal -->
+    <div id="achievementModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4" style="background: rgba(0, 0, 0, 0.95);">
+        <div class="relative max-w-6xl w-full max-h-[90vh] flex flex-col">
+            <!-- Close Button -->
+            <button onclick="closeAchievementModal()" class="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors">
+                <i class="fas fa-times text-3xl"></i>
+            </button>
+            
+            <!-- Achievement Image Container -->
+            <div class="flex-1 flex items-center justify-center overflow-hidden">
+                <img id="modalAchievementImage" src="" alt="" class="max-w-full max-h-[85vh] object-contain rounded-lg">
+            </div>
+            
+            <!-- Achievement Name -->
+            <div class="text-center mt-6">
+                <h3 id="modalAchievementName" class="text-2xl font-display text-white"></h3>
             </div>
         </div>
     </div>
@@ -1100,6 +1121,37 @@
                 certificateModal.classList.add('hidden');
                 certificateModal.classList.remove('flex');
                 document.body.style.overflow = ''; // Restore scrolling
+            }
+        });
+
+        // Achievement Modal Functions
+        function openAchievementModal(imageSrc, achievementName) {
+            const modal = document.getElementById('achievementModal');
+            const image = document.getElementById('modalAchievementImage');
+            const name = document.getElementById('modalAchievementName');
+            
+            image.src = imageSrc;
+            name.textContent = achievementName;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeAchievementModal() {
+            const modal = document.getElementById('achievementModal');
+            const image = document.getElementById('modalAchievementImage');
+            
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            image.src = '';
+            document.body.style.overflow = '';
+        }
+
+        // Close achievement modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            const modal = document.getElementById('achievementModal');
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeAchievementModal();
             }
         });
 
