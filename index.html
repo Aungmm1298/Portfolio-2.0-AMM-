@@ -305,6 +305,52 @@
                 box-shadow: 0 15px 40px rgba(139, 92, 246, 0.4);
             }
         }
+
+        /* ── Mobile Responsive Overrides ────────────────────── */
+        @media (max-width: 640px) {
+            /* Tech icon badges smaller on mobile */
+            .tech-icon-badge {
+                width: 58px;
+                height: 58px;
+                border-radius: 14px;
+            }
+            .tech-icon-badge i {
+                font-size: 1.6rem;
+            }
+            /* Skills container less tall on mobile */
+            .tech-icons-container {
+                min-height: 220px;
+            }
+            /* Fix scatter overflow on mobile */
+            .tech-icon-badge.scattered {
+                transform: scale(0.05) !important;
+                filter: blur(4px);
+            }
+            /* Compact project cards */
+            #work .card {
+                padding: 1rem;
+            }
+            /* Reduce check badge overlap on small cert cards */
+            .certificate-card .absolute.top-4.right-4 {
+                top: 0.5rem;
+                right: 0.5rem;
+                width: 1.25rem;
+                height: 1.25rem;
+            }
+            /* Wavy banner margin */
+            .wavy-banner {
+                margin-top: 2rem;
+            }
+        }
+
+        /* Ensure hero buttons don't overflow on small devices */
+        @media (max-width: 480px) {
+            #home .flex-col a,
+            #home .flex-col button {
+                width: 100%;
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -313,14 +359,37 @@
     <div class="content">
         <!-- Navbar -->
         <nav class="fixed w-full top-4 md:top-6 z-50 flex justify-center px-4">
-            <div class="pill-nav flex flex-wrap gap-1 items-center rounded-full">
-                <a href="#home" class="px-3 md:px-5 py-2 md:py-2.5 text-white hover:text-purple-400 transition text-xs md:text-sm rounded-full hover:bg-white/5 magnetic">Home</a>
-                <a href="#about" class="px-3 md:px-5 py-2 md:py-2.5 text-gray-400 hover:text-white transition text-xs md:text-sm rounded-full hover:bg-white/5 magnetic">About</a>
-                <a href="#work" class="px-3 md:px-5 py-2 md:py-2.5 text-gray-400 hover:text-white transition text-xs md:text-sm rounded-full hover:bg-white/5 magnetic">Work</a>
-                <a href="#skills" class="px-3 md:px-5 py-2 md:py-2.5 text-gray-400 hover:text-white transition text-xs md:text-sm rounded-full hover:bg-white/5 magnetic hidden sm:block">Skills</a>
-                <a href="#achievements" class="px-3 md:px-5 py-2 md:py-2.5 text-gray-400 hover:text-white transition text-xs md:text-sm rounded-full hover:bg-white/5 magnetic hidden sm:block">Achievements</a>
-                <a href="#certificates" class="px-3 md:px-5 py-2 md:py-2.5 text-gray-400 hover:text-white transition text-xs md:text-sm rounded-full hover:bg-white/5 magnetic hidden sm:block">Certificates</a>
-                <a href="#contact" class="px-4 md:px-6 py-2 md:py-2.5 bg-white text-black hover:bg-gray-200 transition text-xs md:text-sm rounded-full font-medium ml-1 md:ml-2 magnetic">Contact</a>
+            <!-- Desktop Nav -->
+            <div class="pill-nav hidden md:flex gap-1 items-center rounded-full">
+                <a href="#home" class="px-5 py-2.5 text-white hover:text-purple-400 transition text-sm rounded-full hover:bg-white/5 magnetic">Home</a>
+                <a href="#about" class="px-5 py-2.5 text-gray-400 hover:text-white transition text-sm rounded-full hover:bg-white/5 magnetic">About</a>
+                <a href="#work" class="px-5 py-2.5 text-gray-400 hover:text-white transition text-sm rounded-full hover:bg-white/5 magnetic">Work</a>
+                <a href="#skills" class="px-5 py-2.5 text-gray-400 hover:text-white transition text-sm rounded-full hover:bg-white/5 magnetic">Skills</a>
+                <a href="#achievements" class="px-5 py-2.5 text-gray-400 hover:text-white transition text-sm rounded-full hover:bg-white/5 magnetic">Achievements</a>
+                <a href="#certificates" class="px-5 py-2.5 text-gray-400 hover:text-white transition text-sm rounded-full hover:bg-white/5 magnetic">Certificates</a>
+                <a href="#contact" class="px-6 py-2.5 bg-white text-black hover:bg-gray-200 transition text-sm rounded-full font-medium ml-2 magnetic">Contact</a>
+            </div>
+            <!-- Mobile Nav -->
+            <div class="md:hidden w-full max-w-sm relative">
+                <div class="pill-nav flex items-center justify-between rounded-full px-3 py-2">
+                    <span class="text-white text-sm font-semibold tracking-wider">AMM</span>
+                    <div class="flex items-center gap-2">
+                        <a href="#contact" class="px-3 py-1.5 bg-white text-black text-xs rounded-full font-medium">Contact</a>
+                        <button id="mobileMenuBtn" class="w-8 h-8 flex items-center justify-center text-white hover:text-purple-400 transition rounded-full hover:bg-white/10" aria-label="Toggle menu">
+                            <i class="fas fa-bars text-sm" id="menuIcon"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- Mobile Dropdown -->
+                <div id="mobileMenu" class="hidden absolute top-full left-0 right-0 mt-2 pill-nav rounded-2xl p-2 flex-col gap-0.5">
+                    <a href="#home" class="mobile-nav-link block px-4 py-3 text-white text-sm rounded-xl hover:bg-white/5 transition">Home</a>
+                    <a href="#about" class="mobile-nav-link block px-4 py-3 text-gray-400 text-sm rounded-xl hover:bg-white/5 transition">About</a>
+                    <a href="#work" class="mobile-nav-link block px-4 py-3 text-gray-400 text-sm rounded-xl hover:bg-white/5 transition">Work</a>
+                    <a href="#skills" class="mobile-nav-link block px-4 py-3 text-gray-400 text-sm rounded-xl hover:bg-white/5 transition">Skills</a>
+                    <a href="#achievements" class="mobile-nav-link block px-4 py-3 text-gray-400 text-sm rounded-xl hover:bg-white/5 transition">Achievements</a>
+                    <a href="#certificates" class="mobile-nav-link block px-4 py-3 text-gray-400 text-sm rounded-xl hover:bg-white/5 transition">Certificates</a>
+                    <a href="#contact" class="mobile-nav-link block mt-1 px-4 py-3 bg-white text-black text-sm rounded-xl font-medium text-center">Contact</a>
+                </div>
             </div>
         </nav>
 
@@ -358,9 +427,9 @@
                         <i class="fas fa-file-pdf"></i>
                         View CV
                     </button>
-                    <a href="mailto:aungmyintmyatchauk@gmail.com" class="inline-flex items-center gap-3 px-6 py-4 bg-gray-900/50 border border-gray-800 hover:border-gray-700 backdrop-blur-sm text-gray-300 rounded-full transition magnetic">
-                        <i class="fas fa-copy"></i>
-                        aungmyintmyatchauk@gmail.com
+                    <a href="mailto:aungmyintmyatchauk@gmail.com" class="inline-flex items-center gap-3 px-4 sm:px-6 py-3 sm:py-4 bg-gray-900/50 border border-gray-800 hover:border-gray-700 backdrop-blur-sm text-gray-300 rounded-full transition magnetic w-full sm:w-auto justify-center">
+                        <i class="fas fa-copy flex-shrink-0"></i>
+                        <span class="text-xs sm:text-sm truncate">aungmyintmyatchauk@gmail.com</span>
                     </a>
                 </div>
             </div>
@@ -378,19 +447,6 @@
                             a little bit of <span class="italic bg-gradient-to-r from-purple-400 via-pink-400 to-purple-500 bg-clip-text text-transparent">everything</span>
                         </h2>
                         
-                        <!-- Social Icons -->
-                        <div class="flex gap-4 mb-8">
-                            <a href="#" class="w-12 h-12 border border-gray-700 rounded-lg flex items-center justify-center hover:border-purple-500 hover:bg-purple-500/10 transition">
-                                <i class="fab fa-linkedin text-xl"></i>
-                            </a>
-                            <a href="#" class="w-12 h-12 border border-gray-700 rounded-lg flex items-center justify-center hover:border-purple-500 hover:bg-purple-500/10 transition">
-                                <i class="fab fa-github text-xl"></i>
-                            </a>
-                            <a href="#" class="w-12 h-12 border border-gray-700 rounded-lg flex items-center justify-center hover:border-purple-500 hover:bg-purple-500/10 transition">
-                                <i class="fab fa-twitter text-xl"></i>
-                            </a>
-                        </div>
-                        
                         <!-- Work Experience Link -->
                         <a href="#work" class="inline-flex items-center gap-2 text-lg hover:text-purple-400 transition group">
                             <span>Work Experience</span>
@@ -399,10 +455,10 @@
                     </div>
                     
                     <!-- Right: Profile Image -->
-                    <div class="flex justify-center lg:justify-end mt-8 lg:mt-0">
-                        <div class="relative w-full max-w-sm md:max-w-md">
+                    <div class="flex justify-center lg:justify-end mt-6 lg:mt-0">
+                        <div class="relative w-full max-w-xs sm:max-w-sm md:max-w-md">
                             <div class="absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl md:rounded-3xl blur-2xl opacity-30"></div>
-                            <div class="relative w-full aspect-[3/4] rounded-2xl md:rounded-3xl overflow-hidden border-2 md:border-4 border-blue-600 bg-gradient-to-br from-blue-600 to-blue-800">
+                            <div class="relative w-full aspect-square sm:aspect-[3/4] rounded-2xl md:rounded-3xl overflow-hidden border-2 md:border-4 border-blue-600 bg-gradient-to-br from-blue-600 to-blue-800">
                                 <img src="images/IMG_5239.jpg" alt="Profile" class="w-full h-full object-cover">
                             </div>
                             <!-- Decorative Element -->
@@ -414,11 +470,11 @@
         </section>
 
         <!-- Work Section -->
-        <section id="work" class="py-32 px-6 scroll-reveal">
+        <section id="work" class="py-16 md:py-24 lg:py-32 px-4 md:px-6 scroll-reveal">
             <div class="max-w-7xl mx-auto">
                 <!-- Additional Projects Grid -->
-                <div class="mt-20">
-                    <h3 class="text-3xl md:text-4xl font-display mb-8 text-center">Academic Projects & Reports</h3>
+                <div class="mt-0 md:mt-10">
+                    <h3 class="text-2xl sm:text-3xl md:text-4xl font-display mb-4 md:mb-8 text-center">Academic Projects & Reports</h3>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <!-- Project 1: Computer Based Control -->
                         <a href="Projects/6631502023_028_055_ComputerBasedControlReport.pdf" target="_blank" class="card rounded-2xl p-6 hover:scale-105 transition-all group">
@@ -529,12 +585,12 @@
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="py-32 px-6 scroll-reveal relative">
+        <section id="skills" class="py-16 md:py-24 lg:py-32 px-4 md:px-6 scroll-reveal relative">
             <div class="max-w-6xl mx-auto">
                 <!-- Header -->
-                <div class="text-center mb-16">
+                <div class="text-center mb-8 md:mb-16">
                     <p class="text-sm text-gray-400 uppercase tracking-wider mb-4">MY SKILLS</p>
-                    <h2 class="text-5xl md:text-7xl font-display mb-4">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-display mb-4">
                         The Secret <span class="italic gradient-text">Sauce</span>
                     </h2>
                 </div>
@@ -582,45 +638,45 @@
         </section>
 
         <!-- Services Section -->
-        <section class="py-32 px-6 scroll-reveal">
+        <section class="py-16 md:py-24 lg:py-32 px-4 md:px-6 scroll-reveal">
             <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-20">
+                <div class="text-center mb-10 md:mb-20">
                     <p class="text-sm text-gray-400 uppercase tracking-wider mb-4">WHAT I OFFER</p>
-                    <h2 class="text-4xl md:text-6xl font-display mb-4">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display mb-4">
                         Cloud Solutions & <span class="italic gradient-text">Services</span>
                     </h2>
                 </div>
                 
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="card rounded-3xl p-8 hover:scale-105 transition-all group">
-                        <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                            <i class="fas fa-cloud text-white text-2xl"></i>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                    <div class="card rounded-2xl md:rounded-3xl p-5 md:p-8 hover:scale-105 transition-all group">
+                        <div class="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-cloud text-white text-xl md:text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-display mb-3">Cloud Architecture</h3>
+                        <h3 class="text-lg md:text-xl font-display mb-2 md:mb-3">Cloud Architecture</h3>
                         <p class="text-gray-400 text-sm">Design scalable and resilient cloud infrastructure tailored to your business needs.</p>
                     </div>
                     
-                    <div class="card rounded-3xl p-8 hover:scale-105 transition-all group">
-                        <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                            <i class="fas fa-exchange-alt text-white text-2xl"></i>
+                    <div class="card rounded-2xl md:rounded-3xl p-5 md:p-8 hover:scale-105 transition-all group">
+                        <div class="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-exchange-alt text-white text-xl md:text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-display mb-3">Cloud Migration</h3>
+                        <h3 class="text-lg md:text-xl font-display mb-2 md:mb-3">Cloud Migration</h3>
                         <p class="text-gray-400 text-sm">Seamless migration of applications and data to cloud platforms with minimal downtime.</p>
                     </div>
                     
-                    <div class="card rounded-3xl p-8 hover:scale-105 transition-all group">
-                        <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                            <i class="fas fa-cogs text-white text-2xl"></i>
+                    <div class="card rounded-2xl md:rounded-3xl p-5 md:p-8 hover:scale-105 transition-all group">
+                        <div class="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-cogs text-white text-xl md:text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-display mb-3">DevOps Implementation</h3>
+                        <h3 class="text-lg md:text-xl font-display mb-2 md:mb-3">DevOps Implementation</h3>
                         <p class="text-gray-400 text-sm">Automate deployment pipelines and infrastructure with modern DevOps practices.</p>
                     </div>
                     
-                    <div class="card rounded-3xl p-8 hover:scale-105 transition-all group">
-                        <div class="w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                            <i class="fas fa-chart-line text-white text-2xl"></i>
+                    <div class="card rounded-2xl md:rounded-3xl p-5 md:p-8 hover:scale-105 transition-all group">
+                        <div class="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-chart-line text-white text-xl md:text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-display mb-3">Cost Optimization</h3>
+                        <h3 class="text-lg md:text-xl font-display mb-2 md:mb-3">Cost Optimization</h3>
                         <p class="text-gray-400 text-sm">Reduce cloud spending while maintaining performance through strategic optimization.</p>
                     </div>
                 </div>
@@ -628,102 +684,102 @@
         </section>
 
         <!-- Certificates Section -->
-        <section id="certificates" class="py-32 px-6 scroll-reveal">
+        <section id="certificates" class="py-16 md:py-24 lg:py-32 px-4 md:px-6 scroll-reveal">
             <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-20">
+                <div class="text-center mb-10 md:mb-20">
                     <p class="text-sm text-gray-400 uppercase tracking-wider mb-4">ACHIEVEMENTS</p>
-                    <h2 class="text-4xl md:text-6xl font-display mb-4">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display mb-4">
                         Professional <span class="italic gradient-text">Certifications</span>
                     </h2>
                     <p class="text-gray-400 max-w-2xl mx-auto">Industry-recognized certifications demonstrating expertise in cloud technologies</p>
                 </div>
                 
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="card rounded-3xl p-6 hover:scale-105 transition-all group relative overflow-hidden cursor-pointer certificate-card" data-cert-img="images/AWS-Certified-Cloud-Practitioner.jpg" data-cert-name="AWS Certified Cloud Practitioner">
+                <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
+                    <div class="card rounded-2xl md:rounded-3xl p-3 md:p-6 hover:scale-105 transition-all group relative overflow-hidden cursor-pointer certificate-card" data-cert-img="images/AWS-Certified-Cloud-Practitioner.jpg" data-cert-name="AWS Certified Cloud Practitioner">
                         <div class="absolute top-4 right-4 w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center">
                             <i class="fas fa-check text-green-500 text-xs"></i>
                         </div>
-                        <div class="bg-gradient-to-br from-orange-500/10 to-transparent rounded-2xl p-4 mb-4">
-                            <img src="images/AWS-Certified-Cloud-Practitioner.jpg" alt="AWS Certified Cloud Practitioner" class="w-full h-40 object-contain">
+                        <div class="bg-gradient-to-br from-orange-500/10 to-transparent rounded-xl md:rounded-2xl p-2 md:p-4 mb-2 md:mb-4">
+                            <img src="images/AWS-Certified-Cloud-Practitioner.jpg" alt="AWS Certified Cloud Practitioner" class="w-full h-24 md:h-40 object-contain">
                         </div>
-                        <h3 class="text-sm font-display text-center mb-2">AWS Certified Cloud Practitioner</h3>
+                        <h3 class="text-xs md:text-sm font-display text-center mb-1 md:mb-2 leading-tight">AWS Certified Cloud Practitioner</h3>
                         <p class="text-xs text-gray-500 text-center">Amazon Web Services</p>
                     </div>
                     
-                    <div class="card rounded-3xl p-6 hover:scale-105 transition-all group relative overflow-hidden cursor-pointer certificate-card" data-cert-img="images/HCIA-Cloud-Service.jpg" data-cert-name="HCIA-Cloud Service">
+                    <div class="card rounded-2xl md:rounded-3xl p-3 md:p-6 hover:scale-105 transition-all group relative overflow-hidden cursor-pointer certificate-card" data-cert-img="images/HCIA-Cloud-Service.jpg" data-cert-name="HCIA-Cloud Service">
                         <div class="absolute top-4 right-4 w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center">
                             <i class="fas fa-check text-green-500 text-xs"></i>
                         </div>
-                        <div class="bg-gradient-to-br from-red-500/10 to-transparent rounded-2xl p-4 mb-4">
-                            <img src="images/HCIA-Cloud-Service.jpg" alt="HCIA-Cloud Service" class="w-full h-40 object-contain">
+                        <div class="bg-gradient-to-br from-red-500/10 to-transparent rounded-xl md:rounded-2xl p-2 md:p-4 mb-2 md:mb-4">
+                            <img src="images/HCIA-Cloud-Service.jpg" alt="HCIA-Cloud Service" class="w-full h-24 md:h-40 object-contain">
                         </div>
-                        <h3 class="text-sm font-display text-center mb-2">HCIA-Cloud Service</h3>
+                        <h3 class="text-xs md:text-sm font-display text-center mb-1 md:mb-2 leading-tight">HCIA-Cloud Service</h3>
                         <p class="text-xs text-gray-500 text-center">Huawei</p>
                     </div>
                     
-                    <div class="card rounded-3xl p-6 hover:scale-105 transition-all group relative overflow-hidden cursor-pointer certificate-card" data-cert-img="images/HCIA-IoT.jpg" data-cert-name="HCIA-IoT">
+                    <div class="card rounded-2xl md:rounded-3xl p-3 md:p-6 hover:scale-105 transition-all group relative overflow-hidden cursor-pointer certificate-card" data-cert-img="images/HCIA-IoT.jpg" data-cert-name="HCIA-IoT">
                         <div class="absolute top-4 right-4 w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center">
                             <i class="fas fa-check text-green-500 text-xs"></i>
                         </div>
-                        <div class="bg-gradient-to-br from-blue-500/10 to-transparent rounded-2xl p-4 mb-4">
-                            <img src="images/HCIA-IoT.jpg" alt="HCIA-IoT" class="w-full h-40 object-contain">
+                        <div class="bg-gradient-to-br from-blue-500/10 to-transparent rounded-xl md:rounded-2xl p-2 md:p-4 mb-2 md:mb-4">
+                            <img src="images/HCIA-IoT.jpg" alt="HCIA-IoT" class="w-full h-24 md:h-40 object-contain">
                         </div>
-                        <h3 class="text-sm font-display text-center mb-2">HCIA-IoT</h3>
+                        <h3 class="text-xs md:text-sm font-display text-center mb-1 md:mb-2 leading-tight">HCIA-IoT</h3>
                         <p class="text-xs text-gray-500 text-center">Huawei</p>
                     </div>
                     
-                    <div class="card rounded-3xl p-6 hover:scale-105 transition-all group relative overflow-hidden cursor-pointer certificate-card" data-cert-img="images/HCCDA-Cloud-Native.png" data-cert-name="HCCDA Cloud Native">
+                    <div class="card rounded-2xl md:rounded-3xl p-3 md:p-6 hover:scale-105 transition-all group relative overflow-hidden cursor-pointer certificate-card" data-cert-img="images/HCCDA-Cloud-Native.png" data-cert-name="HCCDA Cloud Native">
                         <div class="absolute top-4 right-4 w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center">
                             <i class="fas fa-check text-green-500 text-xs"></i>
                         </div>
-                        <div class="bg-gradient-to-br from-purple-500/10 to-transparent rounded-2xl p-4 mb-4">
-                            <img src="images/HCCDA-Cloud-Native.png" alt="HCCDA Cloud Native" class="w-full h-40 object-contain">
+                        <div class="bg-gradient-to-br from-purple-500/10 to-transparent rounded-xl md:rounded-2xl p-2 md:p-4 mb-2 md:mb-4">
+                            <img src="images/HCCDA-Cloud-Native.png" alt="HCCDA Cloud Native" class="w-full h-24 md:h-40 object-contain">
                         </div>
-                        <h3 class="text-sm font-display text-center mb-2">HCCDA Cloud Native</h3>
+                        <h3 class="text-xs md:text-sm font-display text-center mb-1 md:mb-2 leading-tight">HCCDA Cloud Native</h3>
                         <p class="text-xs text-gray-500 text-center">Huawei</p>
                     </div>
                     
-                    <div class="card rounded-3xl p-6 hover:scale-105 transition-all group relative overflow-hidden cursor-pointer certificate-card" data-cert-img="images/HCCDP-Cloud-Migration.png" data-cert-name="HCCDP Cloud Migration">
+                    <div class="card rounded-2xl md:rounded-3xl p-3 md:p-6 hover:scale-105 transition-all group relative overflow-hidden cursor-pointer certificate-card" data-cert-img="images/HCCDP-Cloud-Migration.png" data-cert-name="HCCDP Cloud Migration">
                         <div class="absolute top-4 right-4 w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center">
                             <i class="fas fa-check text-green-500 text-xs"></i>
                         </div>
-                        <div class="bg-gradient-to-br from-cyan-500/10 to-transparent rounded-2xl p-4 mb-4">
-                            <img src="images/HCCDP-Cloud-Migration.png" alt="HCCDP Cloud Migration" class="w-full h-40 object-contain">
+                        <div class="bg-gradient-to-br from-cyan-500/10 to-transparent rounded-xl md:rounded-2xl p-2 md:p-4 mb-2 md:mb-4">
+                            <img src="images/HCCDP-Cloud-Migration.png" alt="HCCDP Cloud Migration" class="w-full h-24 md:h-40 object-contain">
                         </div>
-                        <h3 class="text-sm font-display text-center mb-2">HCCDP Cloud Migration</h3>
+                        <h3 class="text-xs md:text-sm font-display text-center mb-1 md:mb-2 leading-tight">HCCDP Cloud Migration</h3>
                         <p class="text-xs text-gray-500 text-center">Huawei</p>
                     </div>
                     
-                    <div class="card rounded-3xl p-6 hover:scale-105 transition-all group relative overflow-hidden cursor-pointer certificate-card" data-cert-img="images/HCCDP-solution-architect.png" data-cert-name="HCCDP Solution Architect">
+                    <div class="card rounded-2xl md:rounded-3xl p-3 md:p-6 hover:scale-105 transition-all group relative overflow-hidden cursor-pointer certificate-card" data-cert-img="images/HCCDP-solution-architect.png" data-cert-name="HCCDP Solution Architect">
                         <div class="absolute top-4 right-4 w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center">
                             <i class="fas fa-check text-green-500 text-xs"></i>
                         </div>
-                        <div class="bg-gradient-to-br from-indigo-500/10 to-transparent rounded-2xl p-4 mb-4">
-                            <img src="images/HCCDP-solution-architect.png" alt="HCCDP Solution Architect" class="w-full h-40 object-contain">
+                        <div class="bg-gradient-to-br from-indigo-500/10 to-transparent rounded-xl md:rounded-2xl p-2 md:p-4 mb-2 md:mb-4">
+                            <img src="images/HCCDP-solution-architect.png" alt="HCCDP Solution Architect" class="w-full h-24 md:h-40 object-contain">
                         </div>
-                        <h3 class="text-sm font-display text-center mb-2">HCCDP Solution Architect</h3>
+                        <h3 class="text-xs md:text-sm font-display text-center mb-1 md:mb-2 leading-tight">HCCDP Solution Architect</h3>
                         <p class="text-xs text-gray-500 text-center">Huawei</p>
                     </div>
                     
-                    <div class="card rounded-3xl p-6 hover:scale-105 transition-all group relative overflow-hidden cursor-pointer certificate-card" data-cert-img="images/HWDCTEDA233144.png" data-cert-name="HCCDA Tech Essential">
+                    <div class="card rounded-2xl md:rounded-3xl p-3 md:p-6 hover:scale-105 transition-all group relative overflow-hidden cursor-pointer certificate-card" data-cert-img="images/HWDCTEDA233144.png" data-cert-name="HCCDA Tech Essential">
                         <div class="absolute top-4 right-4 w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center">
                             <i class="fas fa-check text-green-500 text-xs"></i>
                         </div>
-                        <div class="bg-gradient-to-br from-pink-500/10 to-transparent rounded-2xl p-4 mb-4">
-                            <img src="images/HWDCTEDA233144.png" alt="Huawei Certification" class="w-full h-40 object-contain">
+                        <div class="bg-gradient-to-br from-pink-500/10 to-transparent rounded-xl md:rounded-2xl p-2 md:p-4 mb-2 md:mb-4">
+                            <img src="images/HWDCTEDA233144.png" alt="Huawei Certification" class="w-full h-24 md:h-40 object-contain">
                         </div>
-                        <h3 class="text-sm font-display text-center mb-2">HCCDA Tech Essential</h3>
+                        <h3 class="text-xs md:text-sm font-display text-center mb-1 md:mb-2 leading-tight">HCCDA Tech Essential</h3>
                         <p class="text-xs text-gray-500 text-center">Huawei</p>
                     </div>
                     
-                    <div class="card rounded-3xl p-6 hover:scale-105 transition-all group relative overflow-hidden cursor-pointer certificate-card" data-cert-img="images/HWENDCAIDA666269.png" data-cert-name="HCCDA AI">
+                    <div class="card rounded-2xl md:rounded-3xl p-3 md:p-6 hover:scale-105 transition-all group relative overflow-hidden cursor-pointer certificate-card" data-cert-img="images/HWENDCAIDA666269.png" data-cert-name="HCCDA AI">
                         <div class="absolute top-4 right-4 w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center">
                             <i class="fas fa-check text-green-500 text-xs"></i>
                         </div>
-                        <div class="bg-gradient-to-br from-yellow-500/10 to-transparent rounded-2xl p-4 mb-4">
-                            <img src="images/HWENDCAIDA666269.png" alt="Huawei Certification" class="w-full h-40 object-contain">
+                        <div class="bg-gradient-to-br from-yellow-500/10 to-transparent rounded-xl md:rounded-2xl p-2 md:p-4 mb-2 md:mb-4">
+                            <img src="images/HWENDCAIDA666269.png" alt="Huawei Certification" class="w-full h-24 md:h-40 object-contain">
                         </div>
-                        <h3 class="text-sm font-display text-center mb-2">HCCDA AI</h3>
+                        <h3 class="text-xs md:text-sm font-display text-center mb-1 md:mb-2 leading-tight">HCCDA AI</h3>
                         <p class="text-xs text-gray-500 text-center">Huawei</p>
                     </div>
                 </div>
@@ -731,20 +787,20 @@
         </section>
 
         <!-- Achievements Section -->
-        <section id="achievements" class="py-32 px-6 scroll-reveal">
+        <section id="achievements" class="py-16 md:py-24 lg:py-32 px-4 md:px-6 scroll-reveal">
             <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-20">
+                <div class="text-center mb-10 md:mb-20">
                     <p class="text-sm text-gray-400 uppercase tracking-wider mb-4">MILESTONES</p>
-                    <h2 class="text-5xl md:text-7xl font-display mb-4">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-display mb-4">
                         Key <span class="italic gradient-text">Achievements</span>
                     </h2>
                 </div>
                 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Achievement Card -->
-                    <div class="card rounded-3xl p-8 hover:scale-105 transition-transform">
-                        <div class="mb-6 cursor-pointer" onclick="openAchievementModal('images/IMG_6558.jpg', '2025-26 Huawei ICT Competition (Grand Prize)')">
-                            <img src="images/IMG_6558.jpg" alt="Huawei ICT Competition" class="w-full h-64 object-cover rounded-xl hover:opacity-80 transition-opacity">
+                    <div class="card rounded-2xl md:rounded-3xl p-4 md:p-8 hover:scale-105 transition-transform">
+                        <div class="mb-4 md:mb-6 cursor-pointer" onclick="openAchievementModal('images/IMG_6558.jpg', '2025-26 Huawei ICT Competition (Grand Prize)')">
+                            <img src="images/IMG_6558.jpg" alt="Huawei ICT Competition" class="w-full h-48 md:h-64 object-cover rounded-xl hover:opacity-80 transition-opacity">
                         </div>
                         <h3 class="text-xl font-display mb-2">2025-26 Huawei ICT Competition (Grand Prize)</h3>
                         <p class="text-gray-400">Awarded the Grand Prize at the Huawei ICT Competition for demonstrating outstanding performance in cloud computing, networking, and ICT problem-solving, competing against top university teams at the national level.</p>
@@ -754,25 +810,25 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-32 px-6 scroll-reveal">
+        <section id="contact" class="py-16 md:py-24 lg:py-32 px-4 md:px-6 scroll-reveal">
             <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16">
+                <div class="text-center mb-8 md:mb-16">
                     <p class="text-sm text-gray-400 uppercase tracking-wider mb-4">GET IN TOUCH</p>
-                    <h2 class="text-4xl md:text-6xl font-display mb-4">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display mb-4">
                         Let's create something <span class="italic gradient-text">amazing</span>
                     </h2>
                 </div>
                 
                 <!-- Main Contact Card - Centered -->
-                <div class="max-w-2xl mx-auto mb-12">
-                    <div class="card rounded-3xl p-10 text-center">
-                        <h2 class="text-3xl font-display mb-6">
+                <div class="max-w-2xl mx-auto mb-6 md:mb-12">
+                    <div class="card rounded-3xl p-6 md:p-10 text-center">
+                        <h2 class="text-xl md:text-3xl font-display mb-3 md:mb-6">
                             Let's work together <br/>
                             <span class="gradient-text">on your next project</span>
                         </h2>
-                        <a href="mailto:aungmyintmyatchauk@gmail.com" class="inline-flex items-center gap-3 px-6 py-3 bg-gray-900 border border-gray-800 hover:border-gray-700 rounded-xl transition">
-                            <i class="fas fa-envelope text-gray-400"></i>
-                            <span class="text-gray-300">aungmyintmyatchauk@gmail.com</span>
+                        <a href="mailto:aungmyintmyatchauk@gmail.com" class="inline-flex items-center gap-3 px-4 sm:px-6 py-3 bg-gray-900 border border-gray-800 hover:border-gray-700 rounded-xl transition">
+                            <i class="fas fa-envelope text-gray-400 flex-shrink-0"></i>
+                            <span class="text-gray-300 text-xs sm:text-sm break-all">aungmyintmyatchauk@gmail.com</span>
                         </a>
                     </div>
                 </div>
@@ -1274,6 +1330,47 @@
         document.getElementById('cvModal').addEventListener('click', function(e) {
             if (e.target === this) {
                 closeCVModal();
+            }
+        });
+
+        // ── Mobile Hamburger Menu ─────────────────────────────
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu    = document.getElementById('mobileMenu');
+        const menuIcon      = document.getElementById('menuIcon');
+
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', function () {
+                const isOpen = !mobileMenu.classList.contains('hidden');
+                if (isOpen) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                    menuIcon.classList.replace('fa-times', 'fa-bars');
+                } else {
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenu.classList.add('flex');
+                    menuIcon.classList.replace('fa-bars', 'fa-times');
+                }
+            });
+        }
+
+        // Close menu when any mobile nav link is tapped
+        document.querySelectorAll('.mobile-nav-link').forEach(function (link) {
+            link.addEventListener('click', function () {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+                menuIcon.classList.replace('fa-times', 'fa-bars');
+            });
+        });
+
+        // Close menu when tapping outside
+        document.addEventListener('click', function (e) {
+            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                const mobileNav = mobileMenuBtn.closest('.md\\:hidden');
+                if (mobileNav && !mobileNav.contains(e.target)) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                    menuIcon.classList.replace('fa-times', 'fa-bars');
+                }
             }
         });
     </script>
